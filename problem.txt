@@ -1,0 +1,39 @@
+  $scope.getTask() = function(task){
+    $http ({
+      method: 'post',
+      url: 'ajax/getTask.php',
+      headers: {'Content-Type' : 'index.html'}
+      data : $.param({data: $scope.tasks.TASK })    
+    }).success(function(data){
+      $scope.tasks = data;
+    });
+  }
+
+
+  function addTask(){
+  $htpp ({
+    method: 'post',
+    url: 'ajax/addTask.php',
+    headers:{'Content-Type' : 'index.html'}  
+  }).success(function(data){
+  getTask();
+    $scope.taskInput = "";
+  }):
+  };
+
+
+  app.controller('tasksController1',function($scope,$http){
+
+  addTask();
+
+    function addTask(){
+      $http ({
+        method: 'post',
+        url: 'ajax/addTask.php',
+        headers:{'Content-Type' : 'index.html'}  
+      }).success(function(data){
+        getTask();
+        $scope.taskInput = "";
+      });
+    };
+}
